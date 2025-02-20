@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Footer from "@/components/shared/footer/Footer";
 import Navbar from "@/components/shared/navbar/Navbar";
@@ -5,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import TrendingProducts from "@/components/products/TrendingProducts";
 
+
 export default function Home() {
+
   return (
     <div>
       <Navbar />
