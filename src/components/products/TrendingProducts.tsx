@@ -15,7 +15,7 @@ import {
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 
-export default function TrendingProducts() {
+export default function TrendingProducts({}) {
   return (
     <div className="px-4 py-14">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
