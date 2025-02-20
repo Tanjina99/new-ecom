@@ -1,101 +1,112 @@
 import Image from "next/image";
+import Footer from "@/components/shared/footer/Footer";
+import Navbar from "@/components/shared/navbar/Navbar";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import TrendingProducts from "@/components/products/TrendingProducts";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      {/* Hero Section */}
+      <section className=" text-white py-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center">
+          <div className="md:w-1/2 bg-orange-400">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="https://th.bing.com/th/id/R.e5343f175bb913195fefbca34ecd5a7e?rik=XcejiWDN2bhT5g&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fAttractive-Model-Man-Transparent.png&ehk=BJFFtmLvZeKZB2Uwj0fKe%2fmcD8WbYtNy3XhWwUNmaxM%3d&risl=&pid=ImgRaw&r=0"
+              alt="Summer Collection"
+              height={500}
+              width={500}
+              className="w-full h-auto object-cover rounded-lg shadow-lg"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+
+          <div className="md:w-1/2 text-center md:text-left">
+            <p className="text-lg font-semibold uppercase text-orange-400">
+              Spring/Summer Collection
+            </p>
+            <h2 className="text-5xl font-bold mb-4 text-black">
+              Summer Collection
+            </h2>
+            <p className="text-lg mb-6 text-gray-700">
+              Explore our collection of amazing products and stay trendy.
+            </p>
+            <Link href="/shop">
+              <Button className="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-yellow-700 transition duration-300 ease-in-out">
+                Start Shopping
+              </Button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* service section */}
+      <div className="px-4 py-16">
+        <div className="max-w-7xl mx-auto flex flex-col items-center">
+          <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 font-montserrat">
+            What We Offer
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Free Delivery Offer */}
+            <div className="flex flex-col items-center text-center bg-green-100 shadow-lg rounded-lg p-4 border-2 border-gray-200 hover:border-gray-400 transition-all duration-300">
+              <Image
+                src="https://png.pngtree.com/png-vector/20240518/ourmid/pngtree-free-delivery-png-image_12493339.png"
+                alt="Free Delivery"
+                height={1200}
+                width={1400}
+                className="w-16 h-16 mb-2"
+              />
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                <span className="text-green-500">Free Delivery</span>
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Enjoy Free Delivery on All Orders! Shop Now & Save
+              </p>
+            </div>
+
+            {/* Best Quality Offer */}
+            <div className="flex flex-col items-center text-center bg-blue-100 shadow-lg rounded-lg p-4 border-2 border-gray-200 hover:border-gray-400 transition-all duration-300">
+              <Image
+                src="https://icon-library.com/images/return-product-icon/return-product-icon-20.jpg"
+                alt="Easy Return"
+                height={1200}
+                width={1400}
+                className="w-16 h-16 mb-2"
+              />
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                <span className="text-blue-500">Easy Return</span>
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Hassle-Free Returns! Enjoy Easy & Free Returns Within 30 Days.
+              </p>
+            </div>
+
+            {/* Customer Support Offer */}
+            <div className="flex flex-col items-center text-center bg-orange-100 shadow-lg rounded-lg p-4 border-2 border-gray-200 hover:border-gray-400 transition-all duration-300">
+              <Image
+                src="https://clipground.com/images/support-png-4.png"
+                alt="Customer Support"
+                height={1200}
+                width={1400}
+                className="w-16 h-16 mb-2"
+              />
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                <span className="text-orange-300">24/7 Customer Support</span>
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Customer Support! We're Here to Help Anytime, Anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <TrendingProducts />
+
+      <Footer />
     </div>
   );
 }
