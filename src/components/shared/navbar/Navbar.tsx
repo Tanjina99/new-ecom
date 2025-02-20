@@ -1,8 +1,14 @@
+
 import Link from "next/link";
 import Image from "next/image";
 import { Search, ShoppingCart, User } from "lucide-react";
+import { UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
-const Navbar = () => {
+
+const Navbar = async () => {
+  const user = await currentUser();
+
   return (
     <nav className="bg-gray-800 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -51,7 +57,12 @@ const Navbar = () => {
         {/* Cart and User Icons */}
         <div className="flex items-center space-x-6">
           <ShoppingCart className="text-white w-6 h-6 cursor-pointer" />
-          <User className="text-white w-6 h-6 cursor-pointer" />
+          
+          {
+            user ? (<UserButton />) : (<Link href={"/sign-in"}>
+              <User className="text-white w-6 h-6 cursor-pointer" />
+              </Link>)
+          }
         </div>
       </div>
     </nav>
