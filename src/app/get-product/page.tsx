@@ -15,12 +15,10 @@
 
 export default async function ServerComponentFetch() {
   const res = await fetch(
-    "https://staging-be-ecom.techserve4u.com/api/product/getProducts",
-    {
-      cache: "no-store",
-    }
+    "https://staging-be-ecom.techserve4u.com/api/product/getProducts"
   );
   const data = await res.json();
+  console.log(data); //it's working, swagger is not working in usa, it will work with mobile data
 
   return (
     <div>

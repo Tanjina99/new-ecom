@@ -1,28 +1,17 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import AllProducts from "@/components/products/AllProducts";
 
 const ProductPage = async () => {
+  const res = await fetch(
+    "https://staging-be-ecom.techserve4u.com/api/product/getProducts"
+  );
+  const data = await res.json();
+  const products = data?.products; //it's working, swagger is not working in usa, it will work with mobile data
+  console.log(products);
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-      <Card>
-        <CardHeader>
-          <CardTitle>Apple AirPods Max Headphone</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
-      </Card>
-    </div>
+    <>
+    <AllProducts products={products}/>
+    </>
   );
 };
 
