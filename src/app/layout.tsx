@@ -30,7 +30,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClerkProvider>
-          <ReduxProvider>{children}</ReduxProvider>
+          <ReduxProvider>
+            <main>{children}</main>
+          </ReduxProvider>
         </ClerkProvider>
       </body>
     </html>
