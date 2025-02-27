@@ -25,7 +25,7 @@ export default function TrendingProducts({
           <Card key={product._id} className="flex flex-col">
             <CardHeader className="flex flex-col items-center">
               <Image
-                src={product.thumbnail}
+                src={product.thumbnail || "/next.svg"}
                 alt={product.name}
                 width={300}
                 height={300}

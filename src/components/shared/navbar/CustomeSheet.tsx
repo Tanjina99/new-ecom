@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -7,19 +8,31 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ShoppingCart } from "lucide-react";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "@/redux/reducer/cart";
+import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
 
 const CustomSheet = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state: any) => state?.cart?.cartItem);
-
+  console.log(cart);
   // Calculate total price
   const total =
     cart?.reduce((acc: number, item: any) => acc + item.price, 0) || 0;
   const taxRate = 0.05; // 5% tax
   const tax = total * taxRate;
   const subtotal = total + tax;
+
+  const handleRemoveFromCart = (id: string) => {
+    dispatch(removeFromCart(id));
+    toast.error("Product remove from the cart");
+  };
 
   return (
     <Sheet>
@@ -43,7 +56,7 @@ const CustomSheet = () => {
                     {index + 1}
                   </span>
                   <Image
-                    src={item.thumbnail}
+                    src={item.thumbnail || "/next.svg"}
                     alt="Product image"
                     height={48}
                     width={48}
@@ -55,6 +68,28 @@ const CustomSheet = () => {
                   <span className="text-sm font-semibold">
                     ${item.price.toFixed(2)}
                   </span>
+                  <Plus
+                    size={12}
+                    color="#000000"
+                    onClick={() => dispatch(increaseQuantity(item?._id))}
+                  />
+                  <span className="text-sm font-semibold">
+                    {item?.quantity}
+                  </span>
+                  {item?.quantity > 1 && (
+                    <Minus
+                      size={12}
+                      color="#000000"
+                      onClick={() => dispatch(decreaseQuantity(item?._id))}
+                    />
+                  )}
+                  <Button
+                    variant="outline"
+                    className="p-0"
+                    onClick={() => handleRemoveFromCart(item._id)}
+                  >
+                    <Trash2 size={12} color="#e60f0f" />
+                  </Button>
                 </div>
               ))}
             </div>

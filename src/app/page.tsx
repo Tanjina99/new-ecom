@@ -7,7 +7,9 @@ import TrendingProducts from "@/components/products/TrendingProducts";
 import Category from "@/components/category/Category";
 
 const Home = async () => {
-  const res = await fetch("http://localhost:5000/api/product/getProducts");
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/product/getProducts`
+  );
   const data = await res.json();
   const products = data?.products;
 

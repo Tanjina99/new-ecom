@@ -6,14 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ICategory } from "@/types/category/category";
+import { Category } from "@/types/category/category";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function CategoryPage({
   categories,
 }: {
-  categories: ICategory[] | undefined;
+  categories: Category[] | undefined;
 }) {
   if (!categories || categories.length === 0) {
     return (
@@ -33,7 +34,7 @@ export default function CategoryPage({
           </CardHeader>
           <CardContent>
             <Image
-              src={category.categoryImage}
+              src={category.categoryImage || "/next.svg"}
               alt={category.name}
               className="w-full h-48 object-cover"
               width={400}

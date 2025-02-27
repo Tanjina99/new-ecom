@@ -24,8 +24,3 @@ export interface Category {
   categoryImage: string;
   children: Category[];
 }
-
-export interface ProductResponse {
-  success: boolean;
-  products: Product[];
-}

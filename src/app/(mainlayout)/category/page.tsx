@@ -2,7 +2,7 @@ import Category from "@/components/category/Category";
 
 const CategoryPage = async () => {
   const res = await fetch(
-    "https://staging-be-ecom.techserve4u.com/api/category/getcategory"
+    `${process.env.NEXT_PUBLIC_BASE_URL}/category/getcategory`
   );
   const data = await res.json();
   const category = data?.categories;
