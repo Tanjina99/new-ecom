@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ShoppingCart, User } from "lucide-react";
+import { Search, User } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
-import SheetComponent from "./SheetComponent";
+import CustomSheet from "./CustomeSheet";
 
 const Navbar = async () => {
   const user = await currentUser();
@@ -55,7 +55,7 @@ const Navbar = async () => {
 
         {/* Cart and User Icons */}
         <div className="flex items-center space-x-6">
-          <SheetComponent />
+          <CustomSheet />
 
           {user ? (
             <UserButton />
