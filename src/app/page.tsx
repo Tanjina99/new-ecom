@@ -1,20 +1,22 @@
-
 import Image from "next/image";
 import Footer from "@/components/shared/footer/Footer";
 import Navbar from "@/components/shared/navbar/Navbar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import TrendingProducts from "@/components/products/TrendingProducts";
+import Category from "@/components/category/Category";
 
-
-export default function Home() {
+const Home = async () => {
+  const res = await fetch("http://localhost:5000/api/product/getProducts");
+  const data = await res.json();
+  const products = data?.products;
 
   return (
     <div>
       <Navbar />
 
       {/* Hero Section */}
-      <section className=" text-white py-10">
+      <section className="text-white py-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center">
           <div className="md:w-1/2 bg-orange-400">
             <Image
@@ -45,7 +47,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* service section */}
+      {/* Service Section */}
       <div className="px-4 py-16">
         <div className="max-w-7xl mx-auto flex flex-col items-center">
           <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 font-montserrat">
@@ -107,9 +109,12 @@ export default function Home() {
         </div>
       </div>
 
-      <TrendingProducts />
+      <Category />
+      <TrendingProducts products={products.slice(0, 6)} />
 
       <Footer />
     </div>
   );
-}
+};
+
+export default Home;
