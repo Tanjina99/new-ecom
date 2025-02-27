@@ -10,7 +10,7 @@ import { ICategory } from "@/types/category/category";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function TrendingProducts({
+export default function CategoryPage({
   categories,
 }: {
   categories: ICategory[] | undefined;
