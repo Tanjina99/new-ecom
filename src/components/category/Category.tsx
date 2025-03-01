@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ICategory } from "@/types/category/category";
 import Image from "next/image";
 import Link from "next/link";
 

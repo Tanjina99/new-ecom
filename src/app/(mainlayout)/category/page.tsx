@@ -6,7 +6,7 @@ const CategoryPage = async () => {
   );
   const data = await res.json();
   const category = data?.categories;
-  console.log(category);
+  console.log(data);
 
   return (
     <>
